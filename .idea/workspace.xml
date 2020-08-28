@@ -11,26 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c64a0872-0680-4207-9ea7-7024d1e16214" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.env.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/P7_leveque_alexis.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_28_08_2020_08_30.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Brand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Customer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Phone.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/BrandRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/CustomerRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/PhoneRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Phone.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Phone.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,12 +25,14 @@
   </component>
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
       <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
@@ -149,6 +137,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/form" />
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
     </include_path>
   </component>
   <component name="ProjectId" id="1giT1995JqrFdk7910rL9oYMiLF" />
@@ -167,11 +158,19 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\P7_leveque_alexis" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -181,8 +180,30 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598596195282</updated>
-      <workItem from="1598596196347" duration="4123000" />
+      <workItem from="1598596196347" duration="11043000" />
     </task>
+    <task id="LOCAL-00001" summary="all Entity was Created and Database is set #3">
+      <created>1598607040100</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1598607040100</updated>
+    </task>
+    <task id="LOCAL-00002" summary="install orm-fixtures and Faker #4">
+      <created>1598608697393</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1598608697393</updated>
+    </task>
+    <task id="LOCAL-00003" summary="install orm-fixtures and Faker #4">
+      <created>1598608709255</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1598608709255</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +222,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="all Entity was Created and Database is set #3" />
+    <MESSAGE value="install orm-fixtures and Faker #4" />
+    <option name="LAST_COMMIT_MESSAGE" value="install orm-fixtures and Faker #4" />
   </component>
   <component name="WindowStateProjectService">
     <state x="457" y="203" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598606472808">
@@ -211,13 +235,33 @@
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
     <state x="593" y="312" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1598596261711" />
+    <state x="645" y="192" key="#com.intellij.ide.util.MemberChooser" timestamp="1598612232909">
+      <screen x="0" y="0" width="1680" height="1020" />
+    </state>
+    <state x="645" y="192" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1598612232909" />
+    <state x="570" y="265" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598612108302">
+      <screen x="0" y="0" width="1680" height="1020" />
+    </state>
+    <state x="570" y="265" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1598612108302" />
+    <state x="616" y="422" key="ComposerInitDialogKey" timestamp="1598608459019">
+      <screen x="0" y="0" width="1680" height="1020" />
+    </state>
+    <state x="616" y="422" key="ComposerInitDialogKey/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1598608459019" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1598606314486">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
     <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1598606314486" />
+    <state x="341" y="155" key="SettingsEditor" timestamp="1598608036606">
+      <screen x="0" y="0" width="1680" height="1020" />
+    </state>
+    <state x="341" y="155" key="SettingsEditor/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1598608036606" />
     <state x="739" y="387" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1598605743856">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
     <state x="739" y="387" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1598605743856" />
+    <state x="557" y="281" key="refactoring.ChangeSignatureDialog" timestamp="1598611769232">
+      <screen x="0" y="0" width="1680" height="1020" />
+    </state>
+    <state x="557" y="281" key="refactoring.ChangeSignatureDialog/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1598611769232" />
   </component>
 </project>

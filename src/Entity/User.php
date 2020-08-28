@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-class User
+class User implements \Symfony\Component\Security\Core\User\UserInterface
 {
     /**
      * @ORM\Id
@@ -131,5 +131,13 @@ class User
         }
 
         return $this;
+    }
+
+    public function getSalt()
+    {
+    }
+
+    public function eraseCredentials()
+    {
     }
 }
