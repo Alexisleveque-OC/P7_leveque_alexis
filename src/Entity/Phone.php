@@ -15,33 +15,33 @@ class Phone
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @ORM\Column(type="text")
      */
-    private $description;
+    private ?string $description;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="string", length=255)
      */
-    private $price;
+    private ?string $price;
 
     /**
      * @ORM\Column(type="array", nullable=true)
      */
-    private $characteristic = [];
+    private array $characteristic = [];
 
     /**
      * @ORM\ManyToOne(targetEntity=Brand::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $brand;
+    private ?Brand $brand;
 
     public function getId(): ?int
     {
