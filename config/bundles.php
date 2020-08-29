@@ -13,4 +13,6 @@ return [
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true, 'test' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],
+    FOS\RestBundle\FOSRestBundle::class => ['all' => true],
+    JMS\SerializerBundle\JMSSerializerBundle::class => ['all' => true],
 ];
