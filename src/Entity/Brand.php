@@ -4,9 +4,11 @@ namespace App\Entity;
 
 use App\Repository\BrandRepository;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity(repositoryClass=BrandRepository::class)
+ * @Serializer\ExclusionPolicy("all")
  */
 class Brand
 {
@@ -19,6 +21,8 @@ class Brand
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Serializer\Groups("List")
+     * @Serializer\Expose()
      */
     private $name;
 
