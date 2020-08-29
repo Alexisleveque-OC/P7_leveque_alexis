@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Phone;
 use App\Repository\PhoneRepository;
+use App\Service\PhoneSearchService;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,14 +20,31 @@ class PhoneController extends AbstractFOSRestController
      * @Rest\Get(
      *     name="app_phones_list"
      * )
-     * @param PhoneRepository $phoneRepository
+     * @param PhoneSearchService $phoneSearchService
      * @return Phone[]
-     * @Rest\View(serializerGroups={"List"})
+     * @Rest\View(serializerGroups={"list"})
      */
-    public function listPhones(PhoneRepository $phoneRepository)
+    public function listPhones(PhoneSearchService $phoneSearchService)
     {
-        $phones = $phoneRepository->findAll();
+        $phones = $phoneSearchService->listPhones();
 
         return $phones;
+    }
+
+    /**
+     * @Rest\Get(
+     *     path="/{id<\d+>}",
+     *     name="app_phone_show"
+     * )
+     * @Rest\View(serializerGroups={"show_phone"})
+     * @param Phone $phone
+     * @param PhoneSearchService $phoneSearchService
+     * @return Phone|null
+     */
+    public function showPhone(Phone $phone, PhoneSearchService $phoneSearchService)
+    {
+        $phone = $phoneSearchService->searchPhone($phone);
+
+        return $phone;
     }
 }

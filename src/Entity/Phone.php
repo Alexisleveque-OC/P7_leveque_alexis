@@ -22,26 +22,28 @@ class Phone
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Serializer\Groups("List")
+     * @Serializer\Groups({"list","show_phone"})
      * @Serializer\Expose()
      */
     private ?string $name;
 
     /**
      * @ORM\Column(type="text")
+     * @Serializer\Groups({"show_phone"})
      * @Serializer\Expose()
      */
     private ?string $description;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Serializer\Groups("List")
+     * @Serializer\Groups({"list","show_phone"})
      * @Serializer\Expose()
      */
     private ?string $price;
 
     /**
      * @ORM\Column(type="array", nullable=true)
+     * @Serializer\Groups({"show_phone"})
      * @Serializer\Expose()
      */
     private array $characteristic = [];
@@ -49,7 +51,7 @@ class Phone
     /**
      * @ORM\ManyToOne(targetEntity=Brand::class)
      * @ORM\JoinColumn(nullable=false)
-     * @Serializer\Groups("List")
+     * @Serializer\Groups({"list","show_phone"})
      * @Serializer\Expose()
      */
     private ?Brand $brand;
