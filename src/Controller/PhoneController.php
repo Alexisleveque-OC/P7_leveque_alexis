@@ -20,13 +20,15 @@ class PhoneController extends AbstractFOSRestController
      * @Rest\Get(
      *     name="app_phones_list"
      * )
-     * @param PhoneRepository $phoneRepository
+     * @param PhoneSearchService $phoneSearchService
      * @return Phone[]
      * @Rest\View(serializerGroups={"list"})
      */
-    public function listPhones(PhoneRepository $phoneRepository)
+    public function listPhones(PhoneSearchService $phoneSearchService)
     {
-        return $phoneRepository->findAll();
+        $phones = $phoneSearchService->listPhones();
+
+        return $phones;
     }
 
     /**

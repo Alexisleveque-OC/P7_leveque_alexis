@@ -25,4 +25,9 @@ class PhoneSearchService
 
         return $phone;
     }
+
+    public function listPhones()
+    {
+        return $this->phoneRepository->findAll();
+    }
 }
