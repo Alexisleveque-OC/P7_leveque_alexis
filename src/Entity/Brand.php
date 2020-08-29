@@ -21,7 +21,7 @@ class Brand
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Serializer\Groups({"list","show_phone"})
+     * @Serializer\Groups({"phones_list","phone_show"})
      * @Serializer\Expose()
      */
     private $name;

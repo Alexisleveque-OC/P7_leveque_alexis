@@ -6,9 +6,11 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @Serializer\ExclusionPolicy("all")
  */
 class User implements \Symfony\Component\Security\Core\User\UserInterface
 {
@@ -21,6 +23,8 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Serializer\Groups({"customers_list"})
+     * @Serializer\Expose()
      */
     private $username;
 
@@ -41,6 +45,8 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity=Customer::class, mappedBy="user", orphanRemoval=true)
+     * @Serializer\Groups("customers_list")
+     * @Serializer\Expose()
      */
     private $customers;
 

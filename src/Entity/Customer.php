@@ -4,9 +4,11 @@ namespace App\Entity;
 
 use App\Repository\CustomerRepository;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity(repositoryClass=CustomerRepository::class)
+ * @Serializer\ExclusionPolicy("all")
  */
 class Customer
 {
@@ -19,6 +21,8 @@ class Customer
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Serializer\Groups({"customers_list"})
+     * @Serializer\Expose()
      */
     private $fullName;
 
@@ -49,6 +53,8 @@ class Customer
 
     /**
      * @ORM\Column(type="datetime_immutable")
+     * @Serializer\Groups({"customers_list"})
+     * @Serializer\Expose()
      */
     private $createdAt;
 
@@ -56,7 +62,7 @@ class Customer
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="customers")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $user;
+    private ?User $user;
 
     public function getId(): ?int
     {
