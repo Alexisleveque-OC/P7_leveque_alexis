@@ -23,7 +23,7 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Serializer\Groups({"customers_list","customer_show"})
+     * @Serializer\Groups({"customers_list","customer_show","after_creation"})
      * @Serializer\Expose()
      */
     private $username;

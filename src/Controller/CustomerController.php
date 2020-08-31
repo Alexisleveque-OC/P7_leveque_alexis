@@ -82,7 +82,7 @@ class CustomerController extends AbstractFOSRestController
      *     options={"validator"={"groups" = "Create"}}
      *     )
      * @ParamConverter (name="user", options={"id" = "user_id"})
-     * @Rest\View (statusCode=201)
+     * @Rest\View (statusCode=201, serializerGroups={"after_creation"})
      * @param Customer $customer
      * @param User $user
      * @param CustomerCreateService $customerCreate
