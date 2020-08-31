@@ -21,39 +21,49 @@ class Customer
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Serializer\Groups({"customers_list"})
+     * @Serializer\Groups({"customers_list","customer_show"})
      * @Serializer\Expose()
      */
     private $fullName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Serializer\Groups({"customer_show"})
+     * @Serializer\Expose()
      */
     private $email;
 
     /**
      * @ORM\Column(type="text")
+     * @Serializer\Groups({"customer_show"})
+     * @Serializer\Expose()
      */
     private $street;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Serializer\Groups({"customer_show"})
+     * @Serializer\Expose()
      */
     private $city;
 
     /**
      * @ORM\Column(type="integer")
+     * @Serializer\Groups({"customer_show"})
+     * @Serializer\Expose()
      */
     private $zipCode;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Serializer\Groups({"customer_show"})
+     * @Serializer\Expose()
      */
     private $country;
 
     /**
      * @ORM\Column(type="datetime_immutable")
-     * @Serializer\Groups({"customers_list"})
+     * @Serializer\Groups({"customers_list","customer_show"})
      * @Serializer\Expose()
      */
     private $createdAt;
@@ -61,6 +71,8 @@ class Customer
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="customers")
      * @ORM\JoinColumn(nullable=false)
+     * @Serializer\Groups({"customer_show"})
+     * @Serializer\Expose()
      */
     private ?User $user;
 
