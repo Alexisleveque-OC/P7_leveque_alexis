@@ -4,6 +4,7 @@
 namespace App\Service;
 
 
+use App\Entity\User;
 use App\Repository\UserRepository;
 
 class UserSearchService
@@ -18,8 +19,8 @@ class UserSearchService
         $this->userRepository = $userRepository;
     }
 
-    public function searchUser($id)
+    public function searchUser(User $user)
     {
-        return $this->userRepository->findOneBy(["id"=> $id]);
+        return $this->userRepository->findOneBy(["id"=> $user->getId()]);
     }
 }

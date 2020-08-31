@@ -11,17 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="888a4337-b196-49f5-8fd0-d0632cdeb043" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/CustomerController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Request/ParamConverter/UserConverter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/CustomerSearchService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/UserSearchService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PhoneController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PhoneController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Brand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Brand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Customer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Phone.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Phone.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/CustomerSearchService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/CustomerSearchService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +152,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../charlotte" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
@@ -236,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598687962298</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="GET customers by Client(User) is ok #7">
+      <created>1598701535139</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1598701535139</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +260,8 @@
     <MESSAGE value="@GET list Phones is ok #5" />
     <MESSAGE value="@GET Phone by id is ok #6" />
     <MESSAGE value="refactor listPhones for use a service #5" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor listPhones for use a service #5" />
+    <MESSAGE value="GET customers by Client(User) is ok #7" />
+    <option name="LAST_COMMIT_MESSAGE" value="GET customers by Client(User) is ok #7" />
   </component>
   <component name="WindowStateProjectService">
     <state x="457" y="203" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598606472808">
@@ -289,6 +288,10 @@
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
     <state x="616" y="422" key="ComposerInitDialogKey/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1598608459019" />
+    <state x="620" y="265" key="FileChooserDialogImpl" timestamp="1598780862562">
+      <screen x="0" y="0" width="1680" height="1020" />
+    </state>
+    <state x="620" y="265" key="FileChooserDialogImpl/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1598780862562" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1598606314486">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
