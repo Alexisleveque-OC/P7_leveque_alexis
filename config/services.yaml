@@ -33,4 +33,4 @@ services:
     App\Request\ParamConverter\:
         resource: '../src/Request/ParamConverter'
         tags:
-            - { name : 'request.param_converter', converter: 'api.converter'}
+            - { name : 'request.param_converter', converter: 'api.converter', priority: 1}

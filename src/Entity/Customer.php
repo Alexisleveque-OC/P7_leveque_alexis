@@ -5,10 +5,17 @@ namespace App\Entity;
 use App\Repository\CustomerRepository;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=CustomerRepository::class)
  * @Serializer\ExclusionPolicy("all")
+ * @UniqueEntity(
+ *     fields={"fullName"},
+ *     message="Ce nom de client est déjà utilisé.",
+ *     groups={"Create"}
+ * )
  */
 class Customer
 {
@@ -21,49 +28,81 @@ class Customer
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Serializer\Groups({"customers_list","customer_show"})
+     * @Serializer\Groups({"customers_list","customer_show","after_creation"})
      * @Serializer\Expose()
+     * @Assert\NotBlank(message="Votre nom ne peux pas être vide", groups={"Create"})
+     * @Assert\Length(min="5",
+     *      max="255",
+     *      minMessage="Votre nom est trop court (5 caractères minimum)",
+     *      maxMessage="Votre nom est trop long (255 caractères max).",
+     *      groups={"Create"}
+     * )
      */
     private $fullName;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Serializer\Groups({"customer_show"})
+     * @Serializer\Groups({"customer_show","after_creation"})
      * @Serializer\Expose()
+     * @Assert\NotBlank(message="Votre email ne peux pas être vide", groups={"Create"})
+     * @Assert\Email(message="Votre email doit avoir un format correct", groups={"Create"})
      */
     private $email;
 
     /**
      * @ORM\Column(type="text")
-     * @Serializer\Groups({"customer_show"})
+     * @Serializer\Groups({"customer_show","after_creation"})
      * @Serializer\Expose()
+     * @Assert\NotBlank(message="Votre rue ne peux pas être vide", groups={"Create"})
+     * @Assert\Length(min="5",
+     *      max="255",
+     *      minMessage="Votre nom de rue est trop court (5 caractères minimum)",
+     *      maxMessage="Votre nom de rue est trop long (255 caractères max).",
+     *      groups={"Create"}
+     * )
      */
     private $street;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Serializer\Groups({"customer_show"})
+     * @Serializer\Groups({"customer_show","after_creation"})
      * @Serializer\Expose()
+     * @Assert\NotBlank(message="Votre nom de ville ne peux pas être vide", groups={"Create"})
+     * @Assert\Length(min="2",
+     *      max="255",
+     *      minMessage="Votre nom de ville est trop court (2 caractères minimum)",
+     *      maxMessage="Votre nom de ville est trop long (255 caractères max).",
+     *      groups={"Create"}
+     * )
      */
     private $city;
 
     /**
      * @ORM\Column(type="integer")
-     * @Serializer\Groups({"customer_show"})
+     * @Serializer\Groups({"customer_show","after_creation"})
      * @Serializer\Expose()
+     * @Assert\Regex("#^[0-9]{4,5}#",message="Votre code postal doit contenir entre 4 et 5 chiffres",
+     *     groups={"Create"})
      */
     private $zipCode;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Serializer\Groups({"customer_show"})
+     * @Serializer\Groups({"customer_show","after_creation"})
      * @Serializer\Expose()
+     * @Assert\NotBlank(message="Votre Pays ne peux pas être vide", groups={"Create"})
+     * @Assert\Length(min="2",
+     *      max="255",
+     *      minMessage="Votre nom de pays est trop court (2 caractères minimum)",
+     *      maxMessage="Votre nom de pays est trop long (255 caractères max).",
+     *      groups={"Create"}
+     * )
      */
     private $country;
 
     /**
      * @ORM\Column(type="datetime_immutable")
-     * @Serializer\Groups({"customers_list","customer_show"})
+     * @Serializer\Groups({"customers_list","customer_show","after_creation"})
      * @Serializer\Expose()
      */
     private $createdAt;
@@ -71,7 +110,7 @@ class Customer
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="customers")
      * @ORM\JoinColumn(nullable=false)
-     * @Serializer\Groups({"customer_show"})
+     * @Serializer\Groups({"customer_show","after_creation"})
      * @Serializer\Expose()
      */
     private ?User $user;
