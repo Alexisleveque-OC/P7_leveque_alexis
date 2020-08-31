@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\ParamConverterInte
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 
-class UserConverter implements ParamConverterInterface
+class ApiConverter implements ParamConverterInterface
 {
     /**
      * @var SerializerInterface

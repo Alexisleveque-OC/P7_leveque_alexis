@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Customer;
 use App\Entity\Phone;
 use App\Service\PhoneSearchService;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
@@ -60,4 +61,5 @@ class PhoneController extends AbstractFOSRestController
 //    {
 //        return $phone;
 //    }
+
 }
