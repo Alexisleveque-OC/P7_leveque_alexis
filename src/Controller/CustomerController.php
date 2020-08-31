@@ -9,6 +9,7 @@ use App\Entity\User;
 use App\Exception\CustomerLinkToUserException;
 use App\Exception\ResourceValidationException;
 use App\Service\CustomerCreateService;
+use App\Service\CustomerDeleteService;
 use App\Service\CustomerSearchService;
 use App\Service\UserSearchService;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
@@ -88,6 +89,7 @@ class CustomerController extends AbstractFOSRestController
      * @param CustomerCreateService $customerCreate
      * @param ConstraintViolationList $violationList
      * @return View
+     * @throws ResourceValidationException
      */
     public function createCustomer(Customer $customer,
                                    User $user,
@@ -116,5 +118,29 @@ class CustomerController extends AbstractFOSRestController
             )
             ]
         );
+    }
+
+    /** @Rest\Delete(
+     *     path="/{user_id}/Customers/{customer_id}"
+     * )
+     * @Route(name="app_customer_delete")
+     * @Rest\View(statusCode=204)
+     * @ParamConverter(name="customer", options={"id" = "customer_id"})
+     * @ParamConverter(name="user", options={"id" = "user_id"})
+     * @param Customer $customer
+     * @param User $user
+     * @param CustomerDeleteService $customerDelete
+     * @return View
+     * @throws CustomerLinkToUserException
+     */
+    public function deleteCustomer(Customer $customer, User $user, CustomerDeleteService $customerDelete)
+    {
+        if ($customer->getUser() !== $user) {
+            $message = "Le client que vous rechercher n'appartient pas à cette utilisateur. Il vous est impossible de le supprimer.";
+            throw new CustomerLinkToUserException($message);
+        }
+        $customerDelete->deleteCustomer($customer);
+
+        return $this->view(null,Response::HTTP_NO_CONTENT);
     }
 }
