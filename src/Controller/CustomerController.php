@@ -10,8 +10,6 @@ use App\Exception\CustomerLinkToUserException;
 use App\Exception\ResourceValidationException;
 use App\Service\CustomerCreateService;
 use App\Service\CustomerDeleteService;
-use App\Service\CustomerSearchService;
-use App\Service\UserSearchService;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\Annotations\Route;
@@ -24,13 +22,13 @@ use Symfony\Component\Validator\ConstraintViolationList;
 /**
  * Class CustomerController
  * @package App\Controller
- * @Route("/api/Clients")
+ * @Route("/api/clients")
  */
 class CustomerController extends AbstractFOSRestController
 {
     /**
      * @Rest\Get(
-     *     path="/{user_id<\d+>}/Customers",
+     *     path="/{user_id<\d+>}/customers",
      *     name="app_list_customers"
      * )
      * @ParamConverter(name="user", options={"id" = "user_id"})
@@ -45,7 +43,7 @@ class CustomerController extends AbstractFOSRestController
 
     /**
      * @Rest\Get(
-     *     path="/{user_id<\d+>}/Customers/{customer_id<\d+>}"
+     *     path="/{user_id<\d+>}/customers/{customer_id<\d+>}"
      * )
      * @Route(name="app_customer_show")
      * @Rest\View(serializerGroups={"customer_show"})
@@ -68,7 +66,7 @@ class CustomerController extends AbstractFOSRestController
 
     /**
      * @Rest\Post(
-     *     path="/{user_id<\d+>}/Customers",
+     *     path="/{user_id<\d+>}/customers",
      *     name="app_customer_create"
      * )
      * @ParamConverter(name="customer",
@@ -90,11 +88,12 @@ class CustomerController extends AbstractFOSRestController
                                    ConstraintViolationList $violationList)
     {
         if (count($violationList)){
-            $message = "Il y à des champs qui contiennent des informations invalide : ";
+            $message = "Il y a des champs qui contiennent des informations invalides : ";
             foreach ($violationList as $violation){
                 $message .= sprintf("champ %s : %s",$violation->getPropertyPath(),$violation->getMessage()).". ";
             }
             throw new ResourceValidationException($message);
+            // TODO : mettre dans un service
         }
         $customer = $customerCreate->createCustomer($customer, $user);
 
@@ -114,7 +113,7 @@ class CustomerController extends AbstractFOSRestController
     }
 
     /** @Rest\Delete(
-     *     path="/{user_id<\d+>}/Customers/{customer_id<\d+>}"
+     *     path="/{user_id<\d+>}/customers/{customer_id<\d+>}"
      * )
      * @Route(name="app_customer_delete")
      * @Rest\View(statusCode=204)
@@ -132,6 +131,7 @@ class CustomerController extends AbstractFOSRestController
             $message = "Le client que vous rechercher n'appartient pas à cette utilisateur. Il vous est impossible de le supprimer.";
             throw new CustomerLinkToUserException($message);
         }
+        // TODO : a revoir apres authentification
         $customerDelete->deleteCustomer($customer);
 
         return $this->view(null,Response::HTTP_NO_CONTENT);
