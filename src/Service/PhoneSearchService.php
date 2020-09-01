@@ -19,13 +19,6 @@ class PhoneSearchService
         $this->phoneRepository = $phoneRepository;
     }
 
-    public function searchPhone(Phone $phone)
-    {
-        $phone = $this->phoneRepository->findOneBy(["id" => $phone->getId()]);
-
-        return $phone;
-    }
-
     public function listPhones()
     {
         return $this->phoneRepository->findAll();

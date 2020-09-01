@@ -37,12 +37,11 @@ class PhoneController extends AbstractFOSRestController
      * )
      * @Rest\View(serializerGroups={"phone_show"})
      * @param Phone $phone
-     * @param PhoneSearchService $phoneSearchService
      * @return Phone|null
      */
-    public function showPhone(Phone $phone, PhoneSearchService $phoneSearchService)
+    public function showPhone(Phone $phone)
     {
-        return $phoneSearchService->searchPhone($phone);
+        return $phone;
     }
 
 

@@ -28,28 +28,24 @@ use Symfony\Component\Validator\ConstraintViolationList;
  */
 class CustomerController extends AbstractFOSRestController
 {
-//     * @ParamConverter(name="user", converter="api.converter")
     /**
      * @Rest\Get(
-     *     path="/{user_id}/Customers",
+     *     path="/{user_id<\d+>}/Customers",
      *     name="app_list_customers"
      * )
-     * @Rest\View(serializerGroups={"customers_list"})
      * @ParamConverter(name="user", options={"id" = "user_id"})
+     * @Rest\View(serializerGroups={"customers_list"})
      * @param User $user
-     * @param CustomerSearchService $customerSearchService
-     * @param UserSearchService $userSearchService
      * @return Customer[]
      */
-    public function listCustomers(User $user, CustomerSearchService $customerSearchService, UserSearchService $userSearchService)
+    public function listCustomers(User $user)
     {
-//        $user = $userSearchService->searchUser($user);
-        return $customerSearchService->searchCustomersByClient($user);
+        return $user->getCustomers();
     }
 
     /**
      * @Rest\Get(
-     *     path="/{user_id}/Customers/{customer_id}"
+     *     path="/{user_id<\d+>}/Customers/{customer_id<\d+>}"
      * )
      * @Route(name="app_customer_show")
      * @Rest\View(serializerGroups={"customer_show"})
@@ -57,14 +53,11 @@ class CustomerController extends AbstractFOSRestController
      * @ParamConverter(name="user", options={"id" = "user_id"})
      * @param User $user
      * @param Customer $customer
-     * @param CustomerSearchService $customerSearchService
      * @return Customer|null
      * @throws CustomerLinkToUserException
      */
-    public function listCustomer(User $user, Customer $customer, CustomerSearchService $customerSearchService)
+    public function listCustomer(User $user, Customer $customer)
     {
-        $customer = $customerSearchService->searchCustomerById($customer);
-
         if ($customer->getUser() !== $user) {
             $message = "Le client que vous rechercher n'appartient pas à cette utilisateur. Il vous est impossible de voir ses informations.";
             throw new CustomerLinkToUserException($message);
@@ -75,7 +68,7 @@ class CustomerController extends AbstractFOSRestController
 
     /**
      * @Rest\Post(
-     *     path="/{user_id}/Customers",
+     *     path="/{user_id<\d+>}/Customers",
      *     name="app_customer_create"
      * )
      * @ParamConverter(name="customer",
@@ -121,7 +114,7 @@ class CustomerController extends AbstractFOSRestController
     }
 
     /** @Rest\Delete(
-     *     path="/{user_id}/Customers/{customer_id}"
+     *     path="/{user_id<\d+>}/Customers/{customer_id<\d+>}"
      * )
      * @Route(name="app_customer_delete")
      * @Rest\View(statusCode=204)
