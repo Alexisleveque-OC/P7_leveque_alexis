@@ -17,14 +17,14 @@ class Brand
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Serializer\Groups({"phones_list","phone_show"})
      * @Serializer\Expose()
      */
-    private $name;
+    private ?string $name;
 
     public function getId(): ?int
     {

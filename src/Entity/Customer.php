@@ -24,7 +24,7 @@ class Customer
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -38,7 +38,7 @@ class Customer
      *      groups={"Create"}
      * )
      */
-    private $fullName;
+    private ?string $fullName;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -47,7 +47,7 @@ class Customer
      * @Assert\NotBlank(message="Votre email ne peux pas être vide", groups={"Create"})
      * @Assert\Email(message="Votre email doit avoir un format correct", groups={"Create"})
      */
-    private $email;
+    private ?string $email;
 
     /**
      * @ORM\Column(type="text")
@@ -61,7 +61,7 @@ class Customer
      *      groups={"Create"}
      * )
      */
-    private $street;
+    private ?string $street;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -75,7 +75,7 @@ class Customer
      *      groups={"Create"}
      * )
      */
-    private $city;
+    private ?string $city;
 
     /**
      * @ORM\Column(type="integer")
@@ -84,7 +84,7 @@ class Customer
      * @Assert\Regex("#^[0-9]{4,5}#",message="Votre code postal doit contenir entre 4 et 5 chiffres",
      *     groups={"Create"})
      */
-    private $zipCode;
+    private ?int $zipCode;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -98,14 +98,14 @@ class Customer
      *      groups={"Create"}
      * )
      */
-    private $country;
+    private ?string $country;
 
     /**
      * @ORM\Column(type="datetime_immutable")
      * @Serializer\Groups({"customers_list","customer_show","after_creation"})
      * @Serializer\Expose()
      */
-    private $createdAt;
+    private ?\DateTimeImmutable $createdAt;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="customers")
