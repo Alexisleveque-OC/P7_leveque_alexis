@@ -11,20 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="888a4337-b196-49f5-8fd0-d0632cdeb043" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/UserCheckLoginService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/P7_leveque_alexis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/P7_leveque_alexis.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/CheckViolationCustomerService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/fos_rest.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/fos_rest.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CustomerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/UserCheckLoginService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserCheckLoginService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598936261371</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Jwt is install and configure #11">
+      <created>1599027171602</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1599027171602</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,9 +329,14 @@
     <MESSAGE value="Post Customers validator is ok #9 (new serializerGroups = after_creation)" />
     <MESSAGE value="delete Customer #10 is ok" />
     <MESSAGE value="refactoring CustomerController.php and PhoneController.php for better using, delete some service unused" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring CustomerController.php and PhoneController.php for better using, delete some service unused" />
+    <MESSAGE value="Jwt is install and configure #11" />
+    <option name="LAST_COMMIT_MESSAGE" value="Jwt is install and configure #11" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="466" y="188" key="#Inspections" timestamp="1599027308332">
+      <screen x="0" y="0" width="1680" height="1020" />
+    </state>
+    <state x="466" y="188" key="#Inspections/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1599027308332" />
     <state x="457" y="203" width="893" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598952928234">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
@@ -347,14 +349,14 @@
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
     <state x="645" y="192" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1598691418018" />
-    <state x="389" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598863878378">
+    <state x="389" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1599029187870">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
-    <state x="389" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1598863878378" />
-    <state x="570" y="265" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598692786862">
+    <state x="389" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1599029187870" />
+    <state x="570" y="265" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599029315770">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
-    <state x="570" y="265" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1598692786862" />
+    <state x="570" y="265" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1599029315770" />
     <state x="616" y="422" key="ComposerInitDialogKey" timestamp="1598608459019">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
@@ -371,10 +373,10 @@
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
     <state x="420" y="245" key="IDE.errors.dialog/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1598876144924" />
-    <state x="622" y="233" key="NewPhpClassDialog" timestamp="1599026553787">
+    <state x="622" y="233" key="NewPhpClassDialog" timestamp="1599029176049">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
-    <state x="622" y="233" key="NewPhpClassDialog/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1599026553787" />
+    <state x="622" y="233" key="NewPhpClassDialog/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1599029176049" />
     <state x="341" y="155" key="SettingsEditor" timestamp="1598608036606">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
