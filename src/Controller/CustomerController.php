@@ -5,11 +5,12 @@ namespace App\Controller;
 
 
 use App\Entity\Customer;
-use App\Entity\User;
 use App\Exception\CustomerLinkToUserException;
 use App\Exception\ResourceValidationException;
+use App\Service\CheckViolationCustomerService;
 use App\Service\CustomerCreateService;
 use App\Service\CustomerDeleteService;
+use App\Service\UserCheckLoginService;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\Annotations\Route;
@@ -22,51 +23,50 @@ use Symfony\Component\Validator\ConstraintViolationList;
 /**
  * Class CustomerController
  * @package App\Controller
- * @Route("/api/clients")
+ * @Route("/api")
  */
 class CustomerController extends AbstractFOSRestController
 {
     /**
      * @Rest\Get(
-     *     path="/{user_id<\d+>}/customers",
+     *     path="/customers",
      *     name="app_list_customers"
      * )
      * @ParamConverter(name="user", options={"id" = "user_id"})
      * @Rest\View(serializerGroups={"customers_list"})
-     * @param User $user
      * @return Customer[]
      */
-    public function listCustomers(User $user)
+    public function listCustomers()
     {
+//        dd($this->getUser());
+        $user = $this->getUser();
         return $user->getCustomers();
     }
 
     /**
      * @Rest\Get(
-     *     path="/{user_id<\d+>}/customers/{customer_id<\d+>}"
+     *     path="/customers/{customer_id<\d+>}"
      * )
      * @Route(name="app_customer_show")
      * @Rest\View(serializerGroups={"customer_show"})
      * @ParamConverter(name="customer", options={"id" = "customer_id"})
-     * @ParamConverter(name="user", options={"id" = "user_id"})
-     * @param User $user
      * @param Customer $customer
+     * @param UserCheckLoginService $checkLogin
      * @return Customer|null
      * @throws CustomerLinkToUserException
      */
-    public function listCustomer(User $user, Customer $customer)
+    public function listCustomer(Customer $customer, UserCheckLoginService $checkLogin)
     {
-        if ($customer->getUser() !== $user) {
-            $message = "Le client que vous rechercher n'appartient pas à cette utilisateur. Il vous est impossible de voir ses informations.";
-            throw new CustomerLinkToUserException($message);
-        }
+        $user = $this->getUser();
+
+        $checkLogin->checkLoginForCustomer($user, $customer);
 
         return $customer;
     }
 
     /**
      * @Rest\Post(
-     *     path="/{user_id<\d+>}/customers",
+     *     path="/customers",
      *     name="app_customer_create"
      * )
      * @ParamConverter(name="customer",
@@ -76,25 +76,20 @@ class CustomerController extends AbstractFOSRestController
      * @ParamConverter (name="user", options={"id" = "user_id"})
      * @Rest\View (statusCode=201, serializerGroups={"after_creation"})
      * @param Customer $customer
-     * @param User $user
      * @param CustomerCreateService $customerCreate
      * @param ConstraintViolationList $violationList
+     * @param CheckViolationCustomerService $checkViolationCustomer
      * @return View
      * @throws ResourceValidationException
      */
     public function createCustomer(Customer $customer,
-                                   User $user,
                                    CustomerCreateService $customerCreate,
-                                   ConstraintViolationList $violationList)
+                                   ConstraintViolationList $violationList,
+                                   CheckViolationCustomerService $checkViolationCustomer)
     {
-        if (count($violationList)){
-            $message = "Il y a des champs qui contiennent des informations invalides : ";
-            foreach ($violationList as $violation){
-                $message .= sprintf("champ %s : %s",$violation->getPropertyPath(),$violation->getMessage()).". ";
-            }
-            throw new ResourceValidationException($message);
-            // TODO : mettre dans un service
-        }
+        $checkViolationCustomer->checkViolation($violationList);
+
+        $user = $this->getUser();
         $customer = $customerCreate->createCustomer($customer, $user);
 
         return $this->view(
@@ -113,27 +108,27 @@ class CustomerController extends AbstractFOSRestController
     }
 
     /** @Rest\Delete(
-     *     path="/{user_id<\d+>}/customers/{customer_id<\d+>}"
+     *     path="/customers/{customer_id<\d+>}"
      * )
      * @Route(name="app_customer_delete")
      * @Rest\View(statusCode=204)
      * @ParamConverter(name="customer", options={"id" = "customer_id"})
-     * @ParamConverter(name="user", options={"id" = "user_id"})
      * @param Customer $customer
-     * @param User $user
      * @param CustomerDeleteService $customerDelete
+     * @param UserCheckLoginService $checkLogin
      * @return View
      * @throws CustomerLinkToUserException
      */
-    public function deleteCustomer(Customer $customer, User $user, CustomerDeleteService $customerDelete)
+    public function deleteCustomer(Customer $customer,
+                                   CustomerDeleteService $customerDelete,
+                                   UserCheckLoginService $checkLogin)
     {
-        if ($customer->getUser() !== $user) {
-            $message = "Le client que vous rechercher n'appartient pas à cette utilisateur. Il vous est impossible de le supprimer.";
-            throw new CustomerLinkToUserException($message);
-        }
-        // TODO : a revoir apres authentification
+        $user = $this->getUser();
+
+        $checkLogin->checkLoginForCustomer($user, $customer);
+
         $customerDelete->deleteCustomer($customer);
 
-        return $this->view(null,Response::HTTP_NO_CONTENT);
+        return $this->view(null, Response::HTTP_NO_CONTENT);
     }
 }
