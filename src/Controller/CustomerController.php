@@ -10,6 +10,7 @@ use App\Exception\CustomerLinkToUserException;
 use App\Exception\ResourceValidationException;
 use App\Service\CustomerCreateService;
 use App\Service\CustomerDeleteService;
+use App\Service\UserCheckLoginService;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\Annotations\Route;
@@ -22,44 +23,47 @@ use Symfony\Component\Validator\ConstraintViolationList;
 /**
  * Class CustomerController
  * @package App\Controller
- * @Route("/api/clients")
+ * @Route("/api")
  */
 class CustomerController extends AbstractFOSRestController
 {
     /**
      * @Rest\Get(
-     *     path="/{user_id<\d+>}/customers",
+     *     path="/customers",
      *     name="app_list_customers"
      * )
      * @ParamConverter(name="user", options={"id" = "user_id"})
      * @Rest\View(serializerGroups={"customers_list"})
-     * @param User $user
      * @return Customer[]
      */
-    public function listCustomers(User $user)
+    public function listCustomers()
     {
+//        dd($this->getUser());
+        $user = $this->getUser();
         return $user->getCustomers();
     }
 
     /**
      * @Rest\Get(
-     *     path="/{user_id<\d+>}/customers/{customer_id<\d+>}"
+     *     path="/customers/{customer_id<\d+>}"
      * )
      * @Route(name="app_customer_show")
      * @Rest\View(serializerGroups={"customer_show"})
      * @ParamConverter(name="customer", options={"id" = "customer_id"})
-     * @ParamConverter(name="user", options={"id" = "user_id"})
      * @param User $user
      * @param Customer $customer
      * @return Customer|null
      * @throws CustomerLinkToUserException
      */
-    public function listCustomer(User $user, Customer $customer)
+    public function listCustomer(Customer $customer, UserCheckLoginService $checkLogin)
     {
-        if ($customer->getUser() !== $user) {
-            $message = "Le client que vous rechercher n'appartient pas à cette utilisateur. Il vous est impossible de voir ses informations.";
-            throw new CustomerLinkToUserException($message);
-        }
+//        if ($customer->getUser() !== $user) {
+//            $message = "Le client que vous rechercher n'appartient pas à cette utilisateur. Il vous est impossible de voir ses informations.";
+//            throw new CustomerLinkToUserException($message);
+//        }
+        $user = $this->getUser();
+
+        $checkLogin->checkLoginForCustomer($user, $customer);
 
         return $customer;
     }
