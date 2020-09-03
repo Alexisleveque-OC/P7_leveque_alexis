@@ -35,7 +35,7 @@ class AppFixtures extends Fixture
 
             $manager->persist($brand);
 
-            for ($j = 1; $j <= 10; $j++) {
+            for ($j = 1; $j <= 9; $j++) {
 
                 $price = floatval(rand(50,1500).'.'.rand(0,99));
 
