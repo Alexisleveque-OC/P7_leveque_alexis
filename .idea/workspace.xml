@@ -11,8 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="888a4337-b196-49f5-8fd0-d0632cdeb043" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CustomerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PhoneController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PhoneController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Customer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Representation/CustomersRepresentation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Representation/CustomersRepresentation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Representation/PhonesRepresentation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Representation/PhonesRepresentation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599137460930</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Pagination is ok #28">
+      <created>1599137814433</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1599137814433</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,7 +365,8 @@
     <MESSAGE value="restricted access and different action are safe now" />
     <MESSAGE value="Pagination for phones is OK #28 and add link in phone list for show phones #12" />
     <MESSAGE value="Pagination for customers is ok #28 , but there is a small bug for last page, this one was not included in links" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pagination for customers is ok #28 , but there is a small bug for last page, this one was not included in links" />
+    <MESSAGE value="Pagination is ok #28" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pagination is ok #28" />
   </component>
   <component name="WindowStateProjectService">
     <state x="466" y="188" key="#Inspections" timestamp="1599027308332">
@@ -409,6 +421,10 @@
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
     <state x="341" y="155" key="SettingsEditor/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1598608036606" />
+    <state width="523" height="446" key="SwitcherDM" timestamp="1599138183520">
+      <screen x="0" y="0" width="1680" height="1020" />
+    </state>
+    <state width="523" height="446" key="SwitcherDM/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1599138183520" />
     <state x="739" y="387" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1598605743856">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>

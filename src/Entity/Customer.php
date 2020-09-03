@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CustomerRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Hateoas\Configuration\Annotation as Hateoas;
 use JMS\Serializer\Annotation as Serializer;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -15,6 +16,32 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     fields={"fullName"},
  *     message="Ce nom de client est déjà utilisé.",
  *     groups={"Create"}
+ * )
+ * @Hateoas\Relation(
+ *     "self",
+ *     href= @Hateoas\Route(
+ *     "app_customer_show",
+ *     parameters = {"id" ="expr(object.getId())"},
+ *     absolute = true
+ *     ),
+ *     exclusion=@Hateoas\Exclusion(groups = {"customers_list"})
+ * )
+ * @Hateoas\Relation(
+ *     "list",
+ *     href= @Hateoas\Route(
+ *     "app_list_customers",
+ *     absolute = true
+ *     ),
+ *     exclusion=@Hateoas\Exclusion(groups = {"customers_show"})
+ * )
+ * @Hateoas\Relation(
+ *     "delete",
+ *     href= @Hateoas\Route(
+ *     "app_customer_delete",
+ *     parameters = {"id" ="expr(object.getId())"},
+ *     absolute = true
+ *     ),
+ *     exclusion=@Hateoas\Exclusion(groups = {"customers_list","customer_show"})
  * )
  */
 class Customer
