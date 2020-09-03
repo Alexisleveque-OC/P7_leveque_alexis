@@ -64,7 +64,7 @@ class CustomersRepresentation
     {
 
         $customerCounter = $this->customerCount->countCustomer($user);
-        $maxPage = $customerCounter / $limit;
+        $maxPage = ceil($customerCounter / $limit);
         $offset = ($page - 1) * $limit;
 
         $pager = $this->customerRepository->findBy(['user'=>$user], ['id' => strtoupper($order)], $limit, $offset);

@@ -51,7 +51,7 @@ class PhonesRepresentation
     public function constructPhoneRepresentation($order = 'asc', $limit = 10, $page = 1)
     {
         $phoneCounter = $this->phoneRepository->countPhones();
-        $maxPage = $phoneCounter / $limit;
+        $maxPage = ceil($phoneCounter / $limit);
         $offset = ($page - 1) * $limit;
 
         $pager = $this->phoneRepository->findBy([], ['id' => strtoupper($order)], $limit, $offset);
