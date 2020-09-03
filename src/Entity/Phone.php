@@ -10,15 +10,15 @@ use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity(repositoryClass=PhoneRepository::class)
-     * @Hateoas\Relation(
-     *     "self",
-     *     href= @Hateoas\Route(
-     *     "app_phone_show",
-     *     parameters = {"id" ="expr(object.getId())"},
-     *     absolute = true
-     *     ),
-     *     exclusion=@Hateoas\Exclusion(groups = {"phones_list"})
-     * )
+ * @Hateoas\Relation(
+ *     "self",
+ *     href= @Hateoas\Route(
+ *     "app_phone_show",
+ *     parameters = {"id" ="expr(object.getId())"},
+ *     absolute = true
+ *     ),
+ *     exclusion=@Hateoas\Exclusion(groups = {"phones_list"})
+ * )
  */
 class Phone
 {

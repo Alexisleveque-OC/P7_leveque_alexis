@@ -45,19 +45,21 @@ class PhoneController extends AbstractFOSRestController
      * )
      * @param SerializerInterface $serializer
      * @param ParamFetcher $paramFetcher
-     * @param PhoneSearchService $phoneSearchService
      * @param PhonesRepresentation $phones
      * @return JsonResponse
      * @Rest\View()
      */
-    public function listPhones(SerializerInterface $serializer,ParamFetcher $paramFetcher, PhoneSearchService $phoneSearchService, PhonesRepresentation $phones)
+    public function listPhones(SerializerInterface $serializer,
+                               ParamFetcher $paramFetcher,
+                               PhonesRepresentation $phones)
     {
         $order = $paramFetcher->get('order');
         $limit = $paramFetcher->get('limit');
         $page = $paramFetcher->get('page');
+
         $phones = $phones->constructPhoneRepresentation($order,$limit,$page);
+
         $phones = $serializer->serialize($phones,'json');
-//dd($phones);
 
         return new JsonResponse($phones,Response::HTTP_OK,[],true);
     }
