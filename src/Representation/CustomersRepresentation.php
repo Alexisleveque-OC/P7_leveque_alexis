@@ -6,7 +6,6 @@ namespace App\Representation;
 
 use App\Entity\User;
 use App\Repository\CustomerRepository;
-use App\Repository\PhoneRepository;
 use App\Service\CustomerCountService;
 use Hateoas\Representation\CollectionRepresentation;
 use Hateoas\Representation\PaginatedRepresentation;

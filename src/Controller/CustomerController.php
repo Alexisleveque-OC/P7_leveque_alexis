@@ -79,11 +79,10 @@ class CustomerController extends AbstractFOSRestController
 
     /**
      * @Rest\Get(
-     *     path="/customers/{customer_id<\d+>}"
+     *     name="app_customer_show",
+     *     path="/customers/{id<\d+>}"
      * )
-     * @Route(name="app_customer_show")
-     * @Rest\View(serializerGroups={"customer_show"})
-     * @ParamConverter(name="customer", options={"id" = "customer_id"})
+     * @Rest\View()
      * @param Customer $customer
      * @param UserCheckLoginService $checkLogin
      * @return Customer|null
@@ -142,11 +141,10 @@ class CustomerController extends AbstractFOSRestController
     }
 
     /** @Rest\Delete(
-     *     path="/customers/{customer_id<\d+>}"
+     *     name="app_customer_delete",
+     *     path="/customers/{id<\d+>}"
      * )
-     * @Route(name="app_customer_delete")
      * @Rest\View(statusCode=204)
-     * @ParamConverter(name="customer", options={"id" = "customer_id"})
      * @param Customer $customer
      * @param CustomerDeleteService $customerDelete
      * @param UserCheckLoginService $checkLogin

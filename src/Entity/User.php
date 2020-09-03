@@ -24,7 +24,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Serializer\Groups({"customers_list","customer_show","after_creation"})
+     * @Serializer\Groups({"customer_show","after_creation"})
      * @Serializer\Expose()
      */
     private ?string $username;
@@ -46,8 +46,6 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity=Customer::class, mappedBy="user", orphanRemoval=true)
-     * @Serializer\Groups("customers_list")
-     * @Serializer\Expose()
      */
     private $customers;
 

@@ -4,11 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Phone;
 use App\Representation\PhonesRepresentation;
-use App\Service\PhoneSearchService;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Request\ParamFetcher;
-use Hateoas\Representation\PaginatedRepresentation;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -77,5 +75,4 @@ class PhoneController extends AbstractFOSRestController
     {
         return $phone;
     }
-
 }
