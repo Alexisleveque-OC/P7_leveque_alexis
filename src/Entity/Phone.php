@@ -4,11 +4,21 @@ namespace App\Entity;
 
 use App\Repository\PhoneRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Hateoas\Configuration\Annotation as Hateoas;
 use JMS\Serializer\Annotation as Serializer;
+
 
 /**
  * @ORM\Entity(repositoryClass=PhoneRepository::class)
- * @Serializer\ExclusionPolicy("all")
+     * @Hateoas\Relation(
+     *     "self",
+     *     href= @Hateoas\Route(
+     *     "app_phone_show",
+     *     parameters = {"id" ="expr(object.getId())"},
+     *     absolute = true
+     *     ),
+     *     exclusion=@Hateoas\Exclusion(groups = {"phones_list"})
+     * )
  */
 class Phone
 {
@@ -22,28 +32,24 @@ class Phone
     /**
      * @ORM\Column(type="string", length=255)
      * @Serializer\Groups({"phones_list","phone_show"})
-     * @Serializer\Expose()
      */
     private ?string $name;
 
     /**
      * @ORM\Column(type="text")
      * @Serializer\Groups({"phone_show"})
-     * @Serializer\Expose()
      */
     private ?string $description;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Serializer\Groups({"phones_list","phone_show"})
-     * @Serializer\Expose()
      */
     private ?string $price;
 
     /**
      * @ORM\Column(type="array", nullable=true)
      * @Serializer\Groups({"phone_show"})
-     * @Serializer\Expose()
      */
     private array $characteristic = [];
 
@@ -51,7 +57,6 @@ class Phone
      * @ORM\ManyToOne(targetEntity=Brand::class)
      * @ORM\JoinColumn(nullable=false)
      * @Serializer\Groups({"phones_list","phone_show"})
-     * @Serializer\Expose()
      */
     private ?Brand $brand;
 
