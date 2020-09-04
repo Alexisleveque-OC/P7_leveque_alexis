@@ -23,7 +23,6 @@ class CheckViolationCustomerServiceTest extends TestCase
 
         $violation = $this->createMock(ConstraintViolation::class);
         $this->violationList = $this->createMock(ConstraintViolationList::class);
-//        $violationList->add($violation);
         $this->violationList->method('count')
             ->willReturn(1);
 
