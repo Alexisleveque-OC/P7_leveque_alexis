@@ -16,15 +16,10 @@ class CustomerCreateService
      * @var EntityManagerInterface
      */
     private EntityManagerInterface $manager;
-    /**
-     * @var UserRepository
-     */
-    private UserRepository $userRepository;
 
-    public function __construct(EntityManagerInterface $manager, UserRepository $userRepository)
+    public function __construct(EntityManagerInterface $manager)
     {
         $this->manager = $manager;
-        $this->userRepository = $userRepository;
     }
 
     public function createCustomer(Customer $customer, User $user)
