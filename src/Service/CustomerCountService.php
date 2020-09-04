@@ -16,7 +16,6 @@ class CustomerCountService
 
     public function __construct(CustomerRepository $repository)
     {
-
         $this->repository = $repository;
     }
 
