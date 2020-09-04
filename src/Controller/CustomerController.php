@@ -88,7 +88,7 @@ class CustomerController extends AbstractFOSRestController
      * @return Customer|null
      * @throws CustomerLinkToUserException
      */
-    public function listCustomer(Customer $customer, UserCheckLoginService $checkLogin)
+    public function showCustomer(Customer $customer, UserCheckLoginService $checkLogin)
     {
         $user = $this->getUser();
 
