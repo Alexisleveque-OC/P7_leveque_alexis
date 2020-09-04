@@ -22,9 +22,8 @@ class CustomerControllerTest extends AuthenticatedClient
         $this->assertArrayHasKey('_embedded',$data);
 
         $dataEmbedded = $data["_embedded"];
-        $items = $dataEmbedded["items"];
 
-        $this->assertCount(10, $items);
+        $this->assertCount(10, $dataEmbedded["items"]);
     }
     public function testShowCustomer()
     {
@@ -60,7 +59,6 @@ class CustomerControllerTest extends AuthenticatedClient
         $client = $this->createAuthenticatedClient($client);
 
         $client->request('POST',"/api/customers",[],[],[],$json);
-        $result = $client->getResponse()->getContent();
 
         $this->assertJson($client->getResponse()->getContent());
     }
@@ -73,7 +71,6 @@ class CustomerControllerTest extends AuthenticatedClient
 
         $client->request('DELETE',"/api/customers/17");
         $this->assertEquals(204,$client->getResponse()->getStatusCode());
-
 
     }
 

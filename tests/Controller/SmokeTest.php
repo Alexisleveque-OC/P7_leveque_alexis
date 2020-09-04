@@ -46,10 +46,12 @@ class SmokeTest extends AuthenticatedClient
         yield ['app_list_phones', '/api/phones', 'GET', 401, false];
         yield ['app_phone_show', '/api/phones/1'];
         yield ['app_phone_show', '/api/phones/1', 'GET', 401 , false];
+        yield ['app_phone_show', '/api/phones/769', 'GET', 404 ];
         yield ['app_list_customers', '/api/customers'];
         yield ['app_list_customers', '/api/customers', 'GET', 401 , false];
         yield ['app_customer_show', '/api/customers/1', 'GET', 401 , false];
         yield ['app_customer_show', '/api/customers/16', 'GET', 401 , false];
+        yield ['app_customer_show', '/api/customers/85', 'GET', 404 ];
         yield ['app_customer_show', '/api/customers/16'];
     }
 }
