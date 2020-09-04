@@ -59,7 +59,12 @@ class PhoneController extends AbstractFOSRestController
 
         $phones = $serializer->serialize($phones,'json');
 
-        return new JsonResponse($phones,Response::HTTP_OK,[],true);
+        $response = new JsonResponse($phones,Response::HTTP_OK,[],true);
+
+        $response->setPublic();
+        $response->setMaxAge(3600);
+
+        return $response;
     }
 
     /**
@@ -69,10 +74,18 @@ class PhoneController extends AbstractFOSRestController
      * )
      * @Rest\View(serializerGroups={"phone_show"})
      * @param Phone $phone
-     * @return Phone|null
+     * @param SerializerInterface $serializer
+     * @return JsonResponse
      */
-    public function showPhone(Phone $phone)
+    public function showPhone(Phone $phone, SerializerInterface $serializer)
     {
-        return $phone;
+        $phone = $serializer->serialize($phone,'json');
+
+        $response = new JsonResponse($phone,Response::HTTP_OK,[],true);
+
+        $response->setPublic();
+        $response->setMaxAge(3600);
+
+        return $response;
     }
 }
