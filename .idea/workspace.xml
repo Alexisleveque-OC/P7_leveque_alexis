@@ -11,11 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="888a4337-b196-49f5-8fd0-d0632cdeb043" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/Controller/AuthenticatedClient.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Controller/CustomerControllerTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Controller/SmokeTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Controller/CustomerControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/CustomerControllerTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -355,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599212746944</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="SmokeTest.php is ok #34">
+      <created>1599219563341</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1599219563341</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,7 +400,8 @@
     <MESSAGE value="auto-discoverable is ok #28" />
     <MESSAGE value="caching Phones_list and phone_show is ok #27" />
     <MESSAGE value="CustomerCreateServiceTest.php and UserCheckLoginServiceTest.php is ok #34" />
-    <option name="LAST_COMMIT_MESSAGE" value="CustomerCreateServiceTest.php and UserCheckLoginServiceTest.php is ok #34" />
+    <MESSAGE value="SmokeTest.php is ok #34" />
+    <option name="LAST_COMMIT_MESSAGE" value="SmokeTest.php is ok #34" />
   </component>
   <component name="WindowStateProjectService">
     <state x="466" y="188" key="#Inspections" timestamp="1599027308332">
