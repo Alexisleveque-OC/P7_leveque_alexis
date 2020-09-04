@@ -11,9 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="888a4337-b196-49f5-8fd0-d0632cdeb043" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/tests/Controller/PhoneControllerTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CustomerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Controller/CustomerControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/CustomerControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PhoneController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PhoneController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -367,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599220726072</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Read create and delete Customer test is ok #34">
+      <created>1599222086203</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1599222086203</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,7 +418,8 @@
     <MESSAGE value="CustomerCreateServiceTest.php and UserCheckLoginServiceTest.php is ok #34" />
     <MESSAGE value="SmokeTest.php is ok #34" />
     <MESSAGE value="test for ListCustomers is ok #34" />
-    <option name="LAST_COMMIT_MESSAGE" value="test for ListCustomers is ok #34" />
+    <MESSAGE value="Read create and delete Customer test is ok #34" />
+    <option name="LAST_COMMIT_MESSAGE" value="Read create and delete Customer test is ok #34" />
   </component>
   <component name="WindowStateProjectService">
     <state x="466" y="188" key="#Inspections" timestamp="1599027308332">
@@ -430,10 +438,10 @@
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
     <state x="645" y="192" width="390" height="648" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1599137018621" />
-    <state x="389" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1599213347082">
+    <state x="389" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1599222159782">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
-    <state x="389" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1599213347082" />
+    <state x="389" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1599222159781" />
     <state x="570" y="265" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599202383181">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
@@ -454,10 +462,10 @@
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
     <state x="420" y="245" key="IDE.errors.dialog/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1598876144924" />
-    <state x="622" y="233" key="NewPhpClassDialog" timestamp="1599220733467">
+    <state x="622" y="233" key="NewPhpClassDialog" timestamp="1599222101147">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
-    <state x="622" y="233" key="NewPhpClassDialog/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1599220733467" />
+    <state x="622" y="233" key="NewPhpClassDialog/0.0.1680.1020/1680.0.1440.870@0.0.1680.1020" timestamp="1599222101147" />
     <state x="674" y="433" key="NewPhpFileDialog" timestamp="1599136822491">
       <screen x="0" y="0" width="1680" height="1020" />
     </state>
