@@ -9,7 +9,7 @@ nelmio_api_doc:
                 type: apiKey
                 description: 'Value: Bearer {jwt}'
                 name: Authorization
-                in: header
+                in: Bearer Token
             security:
                 -   Bearer: []
     areas: # to filter documented areas
@@ -19,9 +19,11 @@ nelmio_api_doc:
         names:
             - { alias: PhonesList , type: App\Entity\Phone , groups: [phones_list]}
             - { alias: PhoneShow , type: App\Entity\Phone , groups: [phone_show]}
-            - { alias: Brand , type: App\Entity\Brand , groups: [phone_show]}
-            - { alias: Brand , type: App\Entity\Brand , groups: [phone_list], areas: [private]}
+            - { alias: BrandInPhoneShow , type: App\Entity\Brand , groups: [phone_show]}
+            - { alias: BrandInPhoneslist , type: App\Entity\Brand , groups: [phones_list]}
             - { alias: CustomersList , type: App\Entity\Customer , groups: [customers_list]}
             - { alias: CustomerShow , type: App\Entity\Customer , groups: [customer_show]}
+            - { alias: UserInCustomerShow , type: App\Entity\User , groups: [customer_show]}
+            - { alias: UserInCustomerAfterCreation , type: App\Entity\User , groups: [after_creation]}
             - { alias: CustomerAfterCreation , type: App\Entity\Customer , groups: [after_creation]}
             - { alias: CustomerCreate , type: App\Entity\Customer , groups: [Create]}
