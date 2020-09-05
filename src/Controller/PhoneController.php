@@ -103,7 +103,7 @@ class PhoneController extends AbstractFOSRestController
      * )
      * @SWG\Response(
      *     response=404,
-     *     description="No product was found"
+     *     description="No phone was found"
      * )
      * @SWG\Response(
      *     response=401,

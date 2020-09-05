@@ -19,10 +19,13 @@ use FOS\RestBundle\Request\ParamFetcher;
 use FOS\RestBundle\View\View;
 use JMS\Serializer\SerializerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Validator\ConstraintViolationList;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
 
 /**
  * Class CustomerController
@@ -54,6 +57,20 @@ class CustomerController extends AbstractFOSRestController
      *     default="1",
      *     description="number of the page want to see"
      * )
+     * @SWG\Response(
+     *     response = 200,
+     *     description="Customers List",
+     *      @SWG\Schema(
+     *          type="array",
+     *          @SWG\Items(ref=@Model(type=Customer::class, groups={"customers_list"}))
+     *     )
+     *)
+     * @SWG\Response(
+     *     response=401,
+     *     description="Token was expired or not found"
+     * )
+     * @SWG\Tag(name="customers")
+     * @Security(name="Bearer")
      * @Rest\View()
      * @param SerializerInterface $serializer
      * @param ParamFetcher $paramFetcher
@@ -83,6 +100,24 @@ class CustomerController extends AbstractFOSRestController
      *     path="/customers/{id<\d+>}"
      * )
      * @Rest\View()
+     * @SWG\Response(
+     *     response = 200,
+     *     description="Customer show",
+     *     @SWG\Schema(
+     *          type="array",
+     *          @SWG\Items(ref=@Model(type=Customer::class, groups={"customer_show"}))
+     *     )
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="No customer was found"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="Token was expired or not found"
+     * )
+     * @SWG\Tag (name="customers")
+     * @Security(name="Bearer")
      * @param Customer $customer
      * @param UserCheckLoginService $checkLogin
      * @return Customer|null
@@ -105,8 +140,33 @@ class CustomerController extends AbstractFOSRestController
      * @ParamConverter(name="customer",
      *     converter="fos_rest.request_body",
      *     options={"validator"={"groups" = "Create"}}
+     * )
+     * @SWG\Response(
+     *     response=201,
+     *     description="Customer has been created",
+     *     @SWG\Schema(
+     *          type="array",
+     *          @SWG\Items(ref=@Model(type=Customer::class, groups={"after_creation"}))
      *     )
-     * @ParamConverter (name="user", options={"id" = "user_id"})
+     * )
+     * @SWG\Response(
+     *     response=400,
+     *     description="Some(s) field(s) are not valide"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="Token was expired or not found"
+     * )
+     * @SWG\Parameter(
+     *     name="body",
+     *     in="body",
+     *     @SWG\Schema(
+     *          type="array",
+     *          @SWG\Items(ref=@Model(type=Customer::class, groups={"Create"}))
+     *      )
+     * )
+     * @SWG\Tag (name="customers")
+     * @Security(name="Bearer")
      * @Rest\View (statusCode=201, serializerGroups={"after_creation"})
      * @param Customer $customer
      * @param CustomerCreateService $customerCreate
@@ -144,6 +204,20 @@ class CustomerController extends AbstractFOSRestController
      *     name="app_customer_delete",
      *     path="/customers/{id<\d+>}"
      * )
+     * @SWG\Response(
+     *     response=204,
+     *     description="Customer was correctly deleted"
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="Customer was not found"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="Token was expired or not found"
+     * )
+     * @SWG\Tag (name="customers")
+     * @Security(name="Bearer")
      * @Rest\View(statusCode=204)
      * @param Customer $customer
      * @param CustomerDeleteService $customerDelete

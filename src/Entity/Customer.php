@@ -6,6 +6,7 @@ use App\Repository\CustomerRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Hateoas\Configuration\Annotation as Hateoas;
 use JMS\Serializer\Annotation as Serializer;
+use Swagger\Annotations as SWG;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -50,12 +51,14 @@ class Customer
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Serializer\Groups({"customers_list"})
+     * @Serializer\Expose()
      */
     private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Serializer\Groups({"customers_list","customer_show","after_creation"})
+     * @Serializer\Groups({"customers_list","customer_show","after_creation","Create"})
      * @Serializer\Expose()
      * @Assert\NotBlank(message="Votre nom ne peux pas être vide", groups={"Create"})
      * @Assert\Length(min="5",
@@ -69,7 +72,8 @@ class Customer
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Serializer\Groups({"customer_show","after_creation"})
+     * @Serializer\Groups({"customer_show","after_creation","Create"})
+     * @SWG\Property(description="Must be a valid email format")
      * @Serializer\Expose()
      * @Assert\NotBlank(message="Votre email ne peux pas être vide", groups={"Create"})
      * @Assert\Email(message="Votre email doit avoir un format correct", groups={"Create"})
@@ -78,7 +82,7 @@ class Customer
 
     /**
      * @ORM\Column(type="text")
-     * @Serializer\Groups({"customer_show","after_creation"})
+     * @Serializer\Groups({"customer_show","after_creation","Create"})
      * @Serializer\Expose()
      * @Assert\NotBlank(message="Votre rue ne peux pas être vide", groups={"Create"})
      * @Assert\Length(min="5",
@@ -92,7 +96,7 @@ class Customer
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Serializer\Groups({"customer_show","after_creation"})
+     * @Serializer\Groups({"customer_show","after_creation","Create"})
      * @Serializer\Expose()
      * @Assert\NotBlank(message="Votre nom de ville ne peux pas être vide", groups={"Create"})
      * @Assert\Length(min="2",
@@ -106,7 +110,7 @@ class Customer
 
     /**
      * @ORM\Column(type="integer")
-     * @Serializer\Groups({"customer_show","after_creation"})
+     * @Serializer\Groups({"customer_show","after_creation","Create"})
      * @Serializer\Expose()
      * @Assert\Regex("#^[0-9]{4,5}#",message="Votre code postal doit contenir entre 4 et 5 chiffres",
      *     groups={"Create"})
@@ -115,7 +119,7 @@ class Customer
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Serializer\Groups({"customer_show","after_creation"})
+     * @Serializer\Groups({"customer_show","after_creation","Create"})
      * @Serializer\Expose()
      * @Assert\NotBlank(message="Votre Pays ne peux pas être vide", groups={"Create"})
      * @Assert\Length(min="2",
