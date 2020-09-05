@@ -11,8 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="888a4337-b196-49f5-8fd0-d0632cdeb043" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/Service/CheckViolationCustomerServiceTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/nelmio_api_doc.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/nelmio_api_doc.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,6 +148,9 @@
       <path value="$PROJECT_DIR$/vendor/willdurand/hateoas" />
       <path value="$PROJECT_DIR$/vendor/willdurand/hateoas-bundle" />
       <path value="$PROJECT_DIR$/vendor/dama/doctrine-test-bundle" />
+      <path value="$PROJECT_DIR$/vendor/zircote/swagger-php" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/api-doc-bundle" />
+      <path value="$PROJECT_DIR$/vendor/exsyst/swagger" />
     </include_path>
   </component>
   <component name="ProjectId" id="1giT1995JqrFdk7910rL9oYMiLF" />
@@ -387,7 +390,28 @@
       <option name="project" value="LOCAL" />
       <updated>1599223887372</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="instalation and configuration for NelmioApiDocBundle is ok #14">
+      <created>1599226615682</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1599226615682</updated>
+    </task>
+    <task id="LOCAL-00030" summary="doc for PhoneController.php is ok #14">
+      <created>1599279923511</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1599279923511</updated>
+    </task>
+    <task id="LOCAL-00031" summary="doc for CustomerController.php is ok #14">
+      <created>1599283500760</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1599283500760</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,9 +431,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="new file was added in .idea #13" />
-    <MESSAGE value="@GET list Phones is ok #5" />
-    <MESSAGE value="@GET Phone by id is ok #6" />
     <MESSAGE value="refactor listPhones for use a service #5" />
     <MESSAGE value="GET customers by Client(User) is ok #7" />
     <MESSAGE value="GET customer is ok #8" />
@@ -432,7 +453,10 @@
     <MESSAGE value="Read create and delete Customer test is ok #34" />
     <MESSAGE value="PhoneControllerTest.php is ok #34" />
     <MESSAGE value="clean controller test #34" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean controller test #34" />
+    <MESSAGE value="instalation and configuration for NelmioApiDocBundle is ok #14" />
+    <MESSAGE value="doc for PhoneController.php is ok #14" />
+    <MESSAGE value="doc for CustomerController.php is ok #14" />
+    <option name="LAST_COMMIT_MESSAGE" value="doc for CustomerController.php is ok #14" />
   </component>
   <component name="WindowStateProjectService">
     <state x="466" y="188" key="#Inspections" timestamp="1599027308332">
