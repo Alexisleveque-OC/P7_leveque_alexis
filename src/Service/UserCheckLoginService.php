@@ -14,7 +14,7 @@ class UserCheckLoginService
     {
         if ($customer->getUser() !== $user) {
             $message = "Le client que vous rechercher n'existe pas.";
-            throw new CustomerLinkToUserException($message);
+            throw new CustomerLinkToUserException($message,404);
         }
     }
 }

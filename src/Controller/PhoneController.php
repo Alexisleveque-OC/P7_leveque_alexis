@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Phone;
 use App\Representation\PhonesRepresentation;
+use App\Service\PhoneSearchService;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Request\ParamFetcher;
@@ -90,9 +91,11 @@ class PhoneController extends AbstractFOSRestController
      *     name="app_phone_show"
      * )
      * @Rest\View(serializerGroups={"phone_show"})
-     * @param Phone $phone
+     * @param $id
      * @param SerializerInterface $serializer
+     * @param PhoneSearchService $phoneSearchService
      * @return JsonResponse
+     * @throws \App\Exception\PhoneNotFoundException
      * @SWG\Response(
      *     response = 200,
      *     description="Phone show",
@@ -112,8 +115,10 @@ class PhoneController extends AbstractFOSRestController
      * @SWG\Tag (name="phones")
      * @Security(name="Bearer")
      */
-    public function showPhone(Phone $phone, SerializerInterface $serializer)
+    public function showPhone($id, SerializerInterface $serializer,PhoneSearchService $phoneSearchService)
     {
+        $phone = $phoneSearchService->findPhone($id);
+
         $phone = $serializer->serialize($phone,'json');
 
         $response = new JsonResponse($phone,Response::HTTP_OK,[],true);

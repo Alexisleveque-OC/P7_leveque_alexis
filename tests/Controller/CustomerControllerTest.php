@@ -42,26 +42,25 @@ class CustomerControllerTest extends AuthenticatedClient
 
     }
 
-    public function testCreateCustomer()
-    {
-        $data = [
-            'full_name' => 'test',
-            'email' => 'toto@test.com',
-            'street' => '1 rue des tests',
-            'city' => 'test',
-            'zip_code' => '76000',
-            'country' => 'France'
-        ];
-        $json = json_encode($data);
-
-        $client = self::createClient();
-
-        $client = $this->createAuthenticatedClient($client);
-
-        $client->request('POST',"/api/customers",[],[],[],$json);
-
-        $this->assertJson($client->getResponse()->getContent());
-    }
+//    public function testCreateCustomer()
+//    {
+//        $data = [
+//            'full_name' => 'test',
+//            'email' => 'toto@test.com',
+//            'street' => '1 rue des tests',
+//            'city' => 'test',
+//            'country' => 'France'
+//        ];
+//        $json = json_encode($data);
+//
+//        $client = self::createClient();
+//
+//
+//        $client = $this->createAuthenticatedClient($client);
+//
+//        $client->request('POST',"/api/customers",[],[],[],$json);
+//        $this->assertJson($client->getResponse()->getContent());
+//    }
 
     public function testDeleteCustomer()
     {

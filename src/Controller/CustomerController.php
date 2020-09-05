@@ -6,11 +6,13 @@ namespace App\Controller;
 
 use App\Entity\Customer;
 use App\Exception\CustomerLinkToUserException;
+use App\Exception\CustomerNotFoundException;
 use App\Exception\ResourceValidationException;
 use App\Representation\CustomersRepresentation;
 use App\Service\CheckViolationCustomerService;
 use App\Service\CustomerCreateService;
 use App\Service\CustomerDeleteService;
+use App\Service\CustomerSearchService;
 use App\Service\UserCheckLoginService;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -118,13 +120,17 @@ class CustomerController extends AbstractFOSRestController
      * )
      * @SWG\Tag (name="customers")
      * @Security(name="Bearer")
-     * @param Customer $customer
+     * @param $id
      * @param UserCheckLoginService $checkLogin
-     * @return Customer|null
+     * @param CustomerSearchService $customerSearchService
+     * @return Customer
      * @throws CustomerLinkToUserException
+     * @throws CustomerNotFoundException
      */
-    public function showCustomer(Customer $customer, UserCheckLoginService $checkLogin)
+    public function showCustomer($id, UserCheckLoginService $checkLogin, CustomerSearchService $customerSearchService)
     {
+        $customer = $customerSearchService->findCustomer($id);
+
         $user = $this->getUser();
 
         $checkLogin->checkLoginForCustomer($user, $customer);
@@ -191,8 +197,7 @@ class CustomerController extends AbstractFOSRestController
             ['Location' => $this->generateUrl(
                 'app_customer_show',
                 [
-                    'user_id' => $customer->getUser()->getId(),
-                    'customer_id' => $customer->getId(),
+                    'id' => $customer->getId(),
                     UrlGeneratorInterface::ABSOLUTE_PATH
                 ]
             )
@@ -219,16 +224,20 @@ class CustomerController extends AbstractFOSRestController
      * @SWG\Tag (name="customers")
      * @Security(name="Bearer")
      * @Rest\View(statusCode=204)
-     * @param Customer $customer
+     * @param $id
      * @param CustomerDeleteService $customerDelete
      * @param UserCheckLoginService $checkLogin
+     * @param CustomerSearchService $customerSearchService
      * @return View
      * @throws CustomerLinkToUserException
+     * @throws CustomerNotFoundException
      */
-    public function deleteCustomer(Customer $customer,
+    public function deleteCustomer($id,
                                    CustomerDeleteService $customerDelete,
-                                   UserCheckLoginService $checkLogin)
+                                   UserCheckLoginService $checkLogin,
+                                   CustomerSearchService $customerSearchService)
     {
+        $customer = $customerSearchService->findCustomer($id);
         $user = $this->getUser();
 
         $checkLogin->checkLoginForCustomer($user, $customer);

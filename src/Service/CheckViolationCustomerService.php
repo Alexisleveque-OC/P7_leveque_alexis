@@ -17,7 +17,7 @@ class CheckViolationCustomerService
             foreach ($violationList as $violation) {
                 $message .= sprintf("champ %s : %s", $violation->getPropertyPath(), $violation->getMessage()) . ". ";
             }
-            throw new ResourceValidationException($message);
+            throw new ResourceValidationException($message,400);
         }
     }
 
