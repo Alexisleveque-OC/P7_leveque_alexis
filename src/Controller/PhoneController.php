@@ -8,9 +8,12 @@ use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Request\ParamFetcher;
 use JMS\Serializer\SerializerInterface;
+use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Nelmio\ApiDocBundle\Annotation\Security;
 
 /**
  * Class PhoneController
@@ -41,6 +44,20 @@ class PhoneController extends AbstractFOSRestController
      *     default="1",
      *     description="number of the page want to see"
      * )
+     * @SWG\Response(
+     *     response = 200,
+     *     description="Phones List",
+     *      @SWG\Schema(
+     *          type="array",
+     *          @SWG\Items(ref=@Model(type=Phone::class, groups={"phones_list"}))
+     *     )
+     *)
+     * @SWG\Response(
+     *     response=401,
+     *     description="Token was expired or not found"
+     * )
+     * @SWG\Tag(name="phones")
+     * @Security(name="Bearer")
      * @param SerializerInterface $serializer
      * @param ParamFetcher $paramFetcher
      * @param PhonesRepresentation $phones
@@ -76,6 +93,24 @@ class PhoneController extends AbstractFOSRestController
      * @param Phone $phone
      * @param SerializerInterface $serializer
      * @return JsonResponse
+     * @SWG\Response(
+     *     response = 200,
+     *     description="Phone show",
+     *     @SWG\Schema(
+     *          type="array",
+     *          @SWG\Items(ref=@Model(type=Phone::class, groups={"phone_show"}))
+     *     )
+     * )
+     * @SWG\Response(
+     *     response=404,
+     *     description="No product was found"
+     * )
+     * @SWG\Response(
+     *     response=401,
+     *     description="Token was expired or not found"
+     * )
+     * @SWG\Tag (name="phones")
+     * @Security(name="Bearer")
      */
     public function showPhone(Phone $phone, SerializerInterface $serializer)
     {

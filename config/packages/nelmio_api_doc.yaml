@@ -4,6 +4,18 @@ nelmio_api_doc:
             title: BileMo
             description: Ceci est l'application BileMo! Récupérer les informations de vos client et sur les différents téléphones que nous vendons!
             version: 1.0.0
+        securityDefinitions:
+            Bearer:
+                type: apiKey
+                description: 'Value: Bearer {jwt}'
+                name: Authorization
+                in: header
+            security:
+                -   Bearer: []
     areas: # to filter documented areas
         path_patterns:
             - ^/api(?!/doc$) # Accepts routes under /api except /api/doc
+    models:
+        names:
+            - { alias: PhoneList , type: App\Entity\Phone , groups: [phones_list]}
+            - { alias: PhoneShow , type: App\Entity\Phone , groups: [phone_show]}
