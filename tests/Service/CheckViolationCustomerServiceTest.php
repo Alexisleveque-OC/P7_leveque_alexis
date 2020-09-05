@@ -6,7 +6,6 @@ namespace App\Tests\Service;
 
 use App\Service\CheckViolationCustomerService;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
 
 class CheckViolationCustomerServiceTest extends TestCase
@@ -21,7 +20,6 @@ class CheckViolationCustomerServiceTest extends TestCase
     {
         $this->checkViolationCustomerService = new CheckViolationCustomerService();
 
-        $violation = $this->createMock(ConstraintViolation::class);
         $this->violationList = $this->createMock(ConstraintViolationList::class);
         $this->violationList->method('count')
             ->willReturn(1);
@@ -32,7 +30,6 @@ class CheckViolationCustomerServiceTest extends TestCase
     public function testCheckViolation()
     {
 
-//        $this->expectException('App\Exception\ResourceValidationException');
         $this->expectException('\Exception');
         $this->checkViolationCustomerService->checkViolation($this->violationList);
 
