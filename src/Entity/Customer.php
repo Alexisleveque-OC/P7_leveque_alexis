@@ -51,7 +51,7 @@ class Customer
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Serializer\Groups({"customers_list"})
+     * @Serializer\Groups({"customers_list","after_creation","customer_show"})
      * @Serializer\Expose()
      */
     private ?int $id;
