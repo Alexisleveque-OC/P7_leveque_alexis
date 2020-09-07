@@ -53,6 +53,7 @@ class Customer
      * @ORM\Column(type="integer")
      * @Serializer\Groups({"customers_list","after_creation","customer_show"})
      * @Serializer\Expose()
+     * @Serializer\Since("1.0")
      */
     private ?int $id;
 
@@ -67,6 +68,7 @@ class Customer
      *      maxMessage="Votre nom est trop long (255 caractères max).",
      *      groups={"Create"}
      * )
+     * @Serializer\Since("1.0")
      */
     private ?string $fullName;
 
@@ -77,6 +79,7 @@ class Customer
      * @Serializer\Expose()
      * @Assert\NotBlank(message="Votre email ne peux pas être vide", groups={"Create"})
      * @Assert\Email(message="Votre email doit avoir un format correct", groups={"Create"})
+     * @Serializer\Since("1.0")
      */
     private ?string $email;
 
@@ -91,6 +94,7 @@ class Customer
      *      maxMessage="Votre nom de rue est trop long (255 caractères max).",
      *      groups={"Create"}
      * )
+     * @Serializer\Since("1.0")
      */
     private ?string $street;
 
@@ -105,6 +109,7 @@ class Customer
      *      maxMessage="Votre nom de ville est trop long (255 caractères max).",
      *      groups={"Create"}
      * )
+     * @Serializer\Since("1.0")
      */
     private ?string $city;
 
@@ -114,6 +119,7 @@ class Customer
      * @Serializer\Expose()
      * @Assert\Regex("#^[0-9]{4,5}#",message="Votre code postal doit contenir entre 4 et 5 chiffres",
      *     groups={"Create"})
+     * @Serializer\Since("1.0")
      */
     private ?int $zipCode;
 
@@ -128,6 +134,7 @@ class Customer
      *      maxMessage="Votre nom de pays est trop long (255 caractères max).",
      *      groups={"Create"}
      * )
+     * @Serializer\Since("1.0")
      */
     private ?string $country;
 
@@ -135,6 +142,7 @@ class Customer
      * @ORM\Column(type="datetime_immutable")
      * @Serializer\Groups({"customers_list","customer_show","after_creation"})
      * @Serializer\Expose()
+     * @Serializer\Since("1.0")
      */
     private ?\DateTimeImmutable $createdAt;
 
@@ -143,6 +151,7 @@ class Customer
      * @ORM\JoinColumn(nullable=false)
      * @Serializer\Groups({"customer_show","after_creation"})
      * @Serializer\Expose()
+     * @Serializer\Since("1.0")
      */
     private ?User $user;
 

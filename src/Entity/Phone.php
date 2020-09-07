@@ -27,30 +27,35 @@ class Phone
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * @Serializer\Groups({"phones_list"})
+     * @Serializer\Since("1.0")
      */
     private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Serializer\Groups({"phones_list","phone_show"})
+     * @Serializer\Since("1.0")
      */
     private ?string $name;
 
     /**
      * @ORM\Column(type="text")
      * @Serializer\Groups({"phone_show"})
+     * @Serializer\Since("1.0")
      */
     private ?string $description;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Serializer\Groups({"phones_list","phone_show"})
+     * @Serializer\Since("1.0")
      */
     private ?string $price;
 
     /**
      * @ORM\Column(type="array", nullable=true)
      * @Serializer\Groups({"phone_show"})
+     * @Serializer\Since("1.0")
      */
     private array $characteristic = [];
 
@@ -58,6 +63,7 @@ class Phone
      * @ORM\ManyToOne(targetEntity=Brand::class)
      * @ORM\JoinColumn(nullable=false)
      * @Serializer\Groups({"phones_list","phone_show"})
+     * @Serializer\Since("1.0")
      */
     private ?Brand $brand;
 

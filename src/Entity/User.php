@@ -19,6 +19,7 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Serializer\Since("1.0")
      */
     private ?int $id;
 
@@ -26,26 +27,31 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      * @Serializer\Groups({"customer_show","after_creation"})
      * @Serializer\Expose()
+     * @Serializer\Since("1.0")
      */
     private ?string $username;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Serializer\Since("1.0")
      */
     private ?string $email;
 
     /**
      * @ORM\Column(type="json")
+     * @Serializer\Since("1.0")
      */
     private array $roles = [];
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Serializer\Since("1.0")
      */
     private ?string $password;
 
     /**
      * @ORM\OneToMany(targetEntity=Customer::class, mappedBy="user", orphanRemoval=true)
+     * @Serializer\Since("1.0")
      */
     private $customers;
 

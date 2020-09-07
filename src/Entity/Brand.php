@@ -16,6 +16,7 @@ class Brand
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Serializer\Since("1.0")
      */
     private ?int $id;
 
@@ -23,6 +24,7 @@ class Brand
      * @ORM\Column(type="string", length=255)
      * @Serializer\Groups({"phones_list","phone_show"})
      * @Serializer\Expose()
+     * @Serializer\Since("1.0")
      */
     private ?string $name;
 

@@ -11,13 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="888a4337-b196-49f5-8fd0-d0632cdeb043" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/CustomerCreateController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/CustomerDeleteController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/CustomerListController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/CustomerShowController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CustomerController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Service/CheckViolationCustomerServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Service/CheckViolationCustomerServiceTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/fos_rest.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/fos_rest.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Brand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Brand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Customer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Phone.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Phone.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -423,7 +422,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599301091244</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="refactoring for codacy #16">
+      <created>1599302364981</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1599302364981</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,7 +449,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="GET customers by Client(User) is ok #7" />
     <MESSAGE value="GET customer is ok #8" />
     <MESSAGE value="GET customer is ok #8 but gets Customers bug now, see that with mentor #7" />
     <MESSAGE value="Post Customers is ok #9 , let's Construct some validator" />
@@ -468,7 +473,8 @@
     <MESSAGE value="doc for PhoneController.php is ok #14" />
     <MESSAGE value="doc for CustomerController.php is ok #14" />
     <MESSAGE value="Add error 404 and message when customer or phone don't exist (use eventListener)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add error 404 and message when customer or phone don't exist (use eventListener)" />
+    <MESSAGE value="refactoring for codacy #16" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring for codacy #16" />
   </component>
   <component name="WindowStateProjectService">
     <state x="466" y="188" key="#Inspections" timestamp="1599027308332">
