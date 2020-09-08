@@ -7,7 +7,7 @@ namespace App\Service;
 use App\Exception\ResourceValidationException;
 use Symfony\Component\Validator\ConstraintViolationList;
 
-class CheckViolationCustomerService
+class CheckViolationService
 {
 
     public function checkViolation(ConstraintViolationList $violationList)

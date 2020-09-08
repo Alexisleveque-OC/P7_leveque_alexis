@@ -44,4 +44,4 @@ Create a virtualhost, for this :
 - If some extension doesn't work correctly you can do this :
 In your terminal, go to your directory of project and submit : "composer install"
 
-- If you want to do some tests,copy ".env.local" and paste it with the name ".env.local.test". Enter in console "composer make-test", the app will be test and fixtures back in original condition.
+- If you want to do some tests,copy ".env.local" and paste it with the name ".env.local.test". Enter in console "php bin/phpunit", the app will be test and fixtures back in original condition.
