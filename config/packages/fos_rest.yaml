@@ -16,7 +16,7 @@ fos_rest:
         formats: { json: true, xml: false, rss: false }
         view_response_listener: true
         mime_types:
-            json: ['application/json']
+            json: ['application/json;version=1.0', 'application/json;version=2.0' ]
     serializer:
         serialize_null: true
     format_listener:
