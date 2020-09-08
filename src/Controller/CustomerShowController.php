@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 use App\Entity\Customer;
+use App\Entity\User;
 use App\Exception\CustomerLinkToUserException;
 use App\Exception\CustomerNotFoundException;
 use App\Service\CustomerSearchService;
@@ -57,6 +58,8 @@ class CustomerShowController extends AbstractFOSRestController
     {
         $customer = $customerSearchService->findCustomer($id);
 
+
+        /** @var User $user */
         $user = $this->getUser();
 
         $checkLogin->checkLoginForCustomer($user, $customer);
