@@ -6,7 +6,6 @@ namespace App\Representation;
 
 use App\Entity\User;
 use App\Repository\CustomerRepository;
-use App\Service\CustomerCountService;
 use Hateoas\Representation\CollectionRepresentation;
 use Hateoas\Representation\PaginatedRepresentation;
 use JMS\Serializer\ArrayTransformerInterface;
@@ -32,10 +31,6 @@ class CustomersRepresentation
      * @var CustomerRepository
      */
     private CustomerRepository $customerRepository;
-    /**
-     * @var CustomerCountService
-     */
-    private CustomerCountService $customerCount;
 
     /**
      * PhonesRepresentation constructor.
@@ -43,13 +38,11 @@ class CustomersRepresentation
      * @param ArrayTransformerInterface $arrayTransformer
      * @param SerializationContextFactoryInterface $factory
      * @param RequestStack $requestStack
-     * @param CustomerCountService $customerCount
      */
     public function __construct(CustomerRepository $customerRepository,
                                 ArrayTransformerInterface $arrayTransformer,
                                 SerializationContextFactoryInterface $factory,
-                                RequestStack $requestStack,
-                                CustomerCountService $customerCount)
+                                RequestStack $requestStack)
     {
 
         $this->arrayTransformer = $arrayTransformer;
@@ -57,12 +50,11 @@ class CustomersRepresentation
         $this->context = $factory->createSerializationContext();
         $this->context->setGroups(self::GROUP);
         $this->customerRepository = $customerRepository;
-        $this->customerCount = $customerCount;
     }
     public function constructPhoneRepresentation(User $user,$order = 'asc', $limit = 10, $page = 1)
     {
 
-        $customerCounter = $this->customerCount->countCustomer($user);
+        $customerCounter = $this->customerRepository->count(["user"=>$user]);
         $maxPage = ceil($customerCounter / $limit);
         $offset = ($page - 1) * $limit;
 
@@ -71,7 +63,7 @@ class CustomersRepresentation
 
         return new PaginatedRepresentation(
             new CollectionRepresentation($normalized),
-            'app_list_phones',
+            'app_list_customers',
             [],
             $page,
             $limit,

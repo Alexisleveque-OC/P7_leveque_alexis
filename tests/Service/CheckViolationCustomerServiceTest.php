@@ -4,21 +4,21 @@
 namespace App\Tests\Service;
 
 
-use App\Service\CheckViolationCustomerService;
+use App\Service\CheckViolationService;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\ConstraintViolationList;
 
 class CheckViolationCustomerServiceTest extends TestCase
 {
     /**
-     * @var CheckViolationCustomerService
+     * @var CheckViolationService
      */
-    private CheckViolationCustomerService $checkViolationCustomerService;
+    private CheckViolationService $checkViolationCustomerService;
     private $violationList;
 
     public function setUp()
     {
-        $this->checkViolationCustomerService = new CheckViolationCustomerService();
+        $this->checkViolationCustomerService = new CheckViolationService();
 
         $this->violationList = $this->createMock(ConstraintViolationList::class);
         $this->violationList->method('count')

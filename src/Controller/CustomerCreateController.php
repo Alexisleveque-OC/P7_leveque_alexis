@@ -6,7 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Customer;
 use App\Exception\ResourceValidationException;
-use App\Service\CheckViolationCustomerService;
+use App\Service\CheckViolationService;
 use App\Service\CustomerCreateService;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -65,14 +65,14 @@ class CustomerCreateController extends AbstractFOSRestController
      * @param Customer $customer
      * @param CustomerCreateService $customerCreate
      * @param ConstraintViolationList $violationList
-     * @param CheckViolationCustomerService $checkViolationCustomer
+     * @param CheckViolationService $checkViolationCustomer
      * @return View
      * @throws ResourceValidationException
      */
     public function createCustomer(Customer $customer,
                                    CustomerCreateService $customerCreate,
                                    ConstraintViolationList $violationList,
-                                   CheckViolationCustomerService $checkViolationCustomer)
+                                   CheckViolationService $checkViolationCustomer)
     {
         $checkViolationCustomer->checkViolation($violationList);
 

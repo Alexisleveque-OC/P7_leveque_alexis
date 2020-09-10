@@ -26,7 +26,7 @@ fos_rest:
     exception:
         enabled: true
         codes:
-            { App\Exception\ResourceValidationException: 400, App\Exception\CustomerLinkToUserException: 404, \Exception: 500 }
+            { \Exception: 500 }
 #    param_fetcher_listener:  true
 #    allowed_methods_listener:  true
 #    routing_loader: true
