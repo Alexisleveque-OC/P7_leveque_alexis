@@ -81,6 +81,7 @@ class PhoneController extends AbstractFOSRestController
 
         $response->setPublic();
         $response->setMaxAge(3600);
+        $response->setVary(['authorization']);
 
         return $response;
     }
@@ -125,6 +126,7 @@ class PhoneController extends AbstractFOSRestController
 
         $response->setPublic();
         $response->setMaxAge(3600);
+        $response->setVary(['authorization']);
 
         return $response;
     }
