@@ -19,7 +19,10 @@ class ExceptionListener
         );
         $response = new Response();
         $response->setContent($message);
+        if ($exception->getCode() != 0){
         $response->setStatusCode($exception->getCode());
+
+        }
 
         $event->setResponse($response);
     }
